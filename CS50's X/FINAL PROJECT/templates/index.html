@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Welcome to Your Movie & Series Tracker
+{% endblock %}
+
+{% block main %}
+    <div class="text-center">
+        <h1>Welcome to your personal Movies & Series tracker!</h1>
+    </div>
+
+    <div class="text-center mt-4">
+        <img src="{{ url_for('static', filename='mmt.jpeg') }}" alt="Movie & Series Tracker" class="img-fluid" />
+    </div>
+
+    <div class="text-center mt-4">
+        <p>Welcome to my site, where you can easily organize and track all the movies and TV series you've watched.</p>
+        <p>Whether you're a casual viewer or a dedicated cinephile, this platform helps you stay on top of everything you've enjoyed!</p>
+    </div>
+
+    <div class="d-flex justify-content-end mt-4">
+        <a href="/register" class="btn btn-secondary ml-2">Register</a>
+        <a href="/login" class="btn btn-primary">Log In</a>
+    </div>
+{% endblock %}

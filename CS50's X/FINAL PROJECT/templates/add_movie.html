@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Add Movie to Watched List
+{% endblock %}
+
+{% block main %}
+    <h2>Add Movie to Watched List</h2>
+    <form action="/add_movie" method="post">
+        <input type="hidden" name="title_id" value="{{ movie_info.id }}">
+        <div class="mb-3">
+            <label for="movie_title" class="form-label">Movie Title</label>
+            <input type="text" class="form-control" id="movie_title" value="{{ movie_info.title }}" readonly>
+        </div>
+        <div class="mb-3">
+            <label for="watched_on" class="form-label">Watched on</label>
+            <input type="date" class="form-control" id="watched_on" name="watched_on" required>
+        </div>
+        <button type="submit" class="btn btn-success">Add Movie</button>
+    </form>
+{% endblock %}

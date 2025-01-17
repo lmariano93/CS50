@@ -1,0 +1,51 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    My Series
+{% endblock %}
+
+{% block main %}
+    <h1>My Series</h1>
+
+    <!-- Lista suspensa para selecionar critério de ordenação -->
+    <div class="mb-3">
+        <label for="sortSelect"><strong>Sort by:</strong></label>
+        <select id="sortSelect" class="form-control" onchange="window.location.href=this.value">
+            <option value="{{ url_for('series', sort_by='imdb_id') }}" {% if sort_by == 'imdb_id' %}selected{% endif %}>IMDb ID</option>
+            <option value="{{ url_for('series', sort_by='title') }}" {% if sort_by == 'title' %}selected{% endif %}>Title</option>
+            <option value="{{ url_for('series', sort_by='release_year') }}" {% if sort_by == 'release_year' %}selected{% endif %}>Released Year</option>
+            <option value="{{ url_for('series', sort_by='imdb_rating') }}" {% if sort_by == 'imdb_rating' %}selected{% endif %}>IMDb Rating</option>
+            <option value="{{ url_for('series', sort_by='watched_on') }}" {% if sort_by == 'watched_on' %}selected{% endif %}>Watched On</option>
+            <option value="{{ url_for('series', sort_by='viewed_episodes') }}" {% if sort_by == 'viewed_episodes' %}selected{% endif %}>Episodes Watched</option>
+            <option value="{{ url_for('series', sort_by='total_episodes') }}" {% if sort_by == 'total_episodes' %}selected{% endif %}>Total Episodes</option>
+        </select>
+    </div>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>IMDb ID</th>
+                <th>Title</th>
+                <th>Released Year</th>
+                <th>IMDb Rating</th>
+                <th>Watched On</th>
+                <th>Episodes Watched</th>
+                <th>Total Episodes</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for title in series %}
+            <tr>
+                <td>{{ title.imdb_id }}</td>
+                <td>{{ title.title }}</td>
+                <td>{{ title.release_year }}</td>
+                <td>{{ title.imdb_rating }}</td>
+                <td>{{ title.watched_on }}</td>
+                <td>{{ title.viewed_episodes }}</td>
+                <td>{{ title.total_episodes }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

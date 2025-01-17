@@ -1,0 +1,12 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Quoted
+{% endblock %}
+
+{% block main %}
+<label class="mb-3 fw-bold" for="quote">Stock Price</label>
+<h2>{{ stock["symbol"] }} - {{ stock["price"] | usd}}</h2>
+{% endblock %}
+
+

@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Delete Movie or Series
+{% endblock %}
+
+{% block main %}
+    <h2>Delete Movie or Series</h2>
+
+    <form action="{{ url_for('delete') }}" method="post">
+        <div class="mb-3">
+            <label for="imdb_id" class="form-label">IMDb ID</label>
+            <input type="text" class="form-control" id="imdb_id" name="imdb_id" required>
+        </div>
+        <button type="submit" class="btn btn-danger">Delete</button>
+    </form>
+{% endblock %}

@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    History
+{% endblock %}
+
+{% block main %}
+    <div class="mb-3">
+        <label class="mb-3 fw-bold" for="quote">Purchase and Sale History</label>
+    </div>
+    <div class="table-responsive-md">
+        <table class="table mx-auto w-50">
+            <thead>
+                <tr class="table-active">
+                    <th scope="col">Symbol</th>
+                    <th scope="col">Shares</th>
+                    <th scope="col">Stock Price</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Action</th>
+                    <th scope="col">Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for stock in portfolio %}
+                <tr class="table-light">
+                    <td>{{ stock["symbol"] }}</td>
+                    <td>{{ stock["shares"] }}</td>
+                    <td>{{ stock["stock_price"] | usd }}</td>
+                    <td>{{ stock["paid_price"] | usd }}</td>
+                    <td>{{ stock["action"] }}</td>
+                    <td>{{ stock["time"] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

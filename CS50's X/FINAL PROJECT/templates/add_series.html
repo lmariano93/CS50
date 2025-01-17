@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Add Series to Watched List
+{% endblock %}
+
+{% block main %}
+    <h2>Add Series to Watched List</h2>
+    <form action="/add_series" method="post">
+        <input type="hidden" name="title_id" value="{{ series_info.id }}">
+        <div class="mb-3">
+            <label for="series_title" class="form-label">Series Title</label>
+            <input type="text" class="form-control" id="series_title" value="{{ series_info.title }}" readonly>
+        </div>
+        <div class="mb-3">
+            <label for="viewed_episodes" class="form-label">Episodes Watched</label>
+            <input type="number" class="form-control" id="viewed_episodes" name="viewed_episodes" min="1" required>
+        </div>
+        <div class="mb-3">
+            <label for="watched_on" class="form-label">Watched on</label>
+            <input type="date" class="form-control" id="watched_on" name="watched_on" required>
+        </div>
+        <button type="submit" class="btn btn-success">Add Series</button>
+    </form>
+{% endblock %}

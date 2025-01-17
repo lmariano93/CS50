@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Search for a Movie
+{% endblock %}
+
+{% block main %}
+    <h2>Search for a Movie</h2>
+    <form action="/search_movies" method="get">
+        <div class="mb-3">
+            <label for="movie_title" class="form-label">Movie Title</label>
+            <input type="text" class="form-control" id="movie_title" name="movie_title" required>
+            <button type="submit" class="btn btn-info mt-2">Search</button>
+        </div>
+    </form>
+
+    {% if movie_list %}
+        <h3>Search Results</h3>
+        <form action="/add_movie" method="get">
+            <ul class="list-group">
+                {% for movie in movie_list %}
+                    {% set movie_added = false %}
+                    {% for user_movie in user_movies %}
+                        {% if user_movie.title_id == movie.id %}
+                            {% set movie_added = true %}
+                        {% endif %}
+                    {% endfor %}
+
+                    <li class="list-group-item">
+                        {% if movie_added %}
+                            <span class="text-muted">Already added to your watched list: {{ movie.title }} ({{ movie.release_year }})</span>
+                        {% else %}
+                            <input type="radio" name="title_id" value="{{ movie.id }}" required>
+                            {{ movie.title }} ({{ movie.release_year }}) - IMDb Rating: {{ movie.imdb_rating }}
+                        {% endif %}
+                    </li>
+                {% endfor %}
+            </ul>
+            <button type="submit" class="btn btn-primary mt-3" {% if movie_added %}disabled{% endif %}>Select Movie</button>
+        </form>
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Search for a Series
+{% endblock %}
+
+{% block main %}
+    <h2>Search for a Series</h2>
+    <form action="/search_series" method="get">
+        <div class="mb-3">
+            <label for="series_title" class="form-label">Series Title</label>
+            <input type="text" class="form-control" id="series_title" name="series_title" required>
+            <button type="submit" class="btn btn-info mt-2">Search</button>
+        </div>
+    </form>
+
+    {% if series_list %}
+        <h3>Search Results</h3>
+        <form action="/add_series" method="get">
+            <ul class="list-group">
+                {% for titles in series_list %}
+                    <li class="list-group-item">
+                        <input type="radio" name="title_id" value="{{ titles.id }}" required>
+                        {{ titles.title }} ({{ titles.release_year }}) - IMDb Rating: {{ titles.imdb_rating }}
+                    </li>
+                {% endfor %}
+            </ul>
+            <button type="submit" class="btn btn-primary mt-3">Select Series</button>
+        </form>
+    {% endif %}
+{% endblock %}

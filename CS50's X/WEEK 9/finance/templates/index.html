@@ -1,0 +1,51 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Portfolio
+{% endblock %}
+
+{% block main %}
+    <div class="mb-3">
+        <label class="mb-3 fw-bold" for="quote">Portfolio</label>
+    </div>
+    <div class="table-responsive-md">
+        <table class="table mx-auto w-50">
+            <thead>
+                <tr class="table-active">
+                    <th scope="col">Symbol</th>
+                    <th scope="col">No. of Shares</th>
+                    <th scope="col">Average Paid Price</th>
+                    <th scope="col">Current Price</th>
+                    <th scope="col">Stock Value</th>
+                    <th scope="col">Profit</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for stock in transactions %}
+                <tr class="table-light">
+                    <td>{{ stock["symbol"] }}</td>
+                    <td>{{ stock["shares"] }}</td>
+                    <td>{{ stock["avg_paid_price"] }}</td>
+                    <td>{{ stock["current_price"] }}</td>
+                    <td>{{ stock["stock_value"] }}</td>
+                    <td>{{ stock["profit"] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td class="border-0 fw-bold text-end" colspan="5">Current Cash Balance:</td>
+                    <td class="border-0 text-center">{{ cash_left }}</td>
+                </tr>
+                <tr>
+                    <td class="border-0 fw-bold text-end" colspan="5">Total:</td>
+                    <td class="border-0 text-center">{{ total_amount }}</td>
+                </tr>
+                <tr>
+                    <td class="border-0 fw-bold text-end" colspan="6"><a href="/deposit" class="btn btn-primary">Deposit Money</a></td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+
+{% endblock %}

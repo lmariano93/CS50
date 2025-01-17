@@ -1,0 +1,70 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Your Movie & Series Summary
+{% endblock %}
+
+{% block main %}
+    <h1>Summary</h1>
+
+    <div class="d-flex justify-content-between align-items-center">
+        <h3>Latest Movies Watched</h3>
+        <a href="/movies" class="btn btn-primary btn-sm">Go to Movies</a>
+    </div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>IMDb ID</th>
+                <th>Title</th>
+                <th>Released Year</th>
+                <th>IMDb Rating</th>
+                <th>Watched On</th>
+                <th>Duration (min)</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for title in movies %}
+            <tr>
+                <td>{{ title.imdb_id }}</td>
+                <td>{{ title.title }}</td>
+                <td>{{ title.release_year }}</td>
+                <td>{{ title.imdb_rating }}</td>
+                <td>{{ title.watched_on }}</td>
+                <td>{{ title.duration }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <div class="d-flex justify-content-between align-items-center">
+        <h3>Latest Series Watched</h3>
+        <a href="/series" class="btn btn-primary btn-sm">Go to Series</a>
+    </div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>IMDb ID</th>
+                <th>Title</th>
+                <th>Released Year</th>
+                <th>IMDb Rating</th>
+                <th>Watched On</th>
+                <th>Episodes Watched</th>
+                <th>Total Episodes</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for title in series %}
+            <tr>
+                <td>{{ title.imdb_id }}</td>
+                <td>{{ title.title }}</td>
+                <td>{{ title.release_year }}</td>
+                <td>{{ title.imdb_rating }}</td>
+                <td>{{ title.watched_on }}</td>
+                <td>{{ title.viewed_episodes }}</td>
+                <td>{{ title.total_episodes }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}
