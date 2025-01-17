@@ -1,0 +1,24 @@
+sort1 uses: bubble sort
+
+How do you know?: It has the fastest time for the best scenario (sorted).
+
+./sort1 sorted50000 - 0,827s
+./sort2 sorted50000 - 1,020s
+./sort3 sorted50000 - 2,609s
+
+sort2 uses: merge sort
+
+How do you know?: It has a fast runtime for all the tests.
+
+./sort2 sorted50000 - 1,020s
+./sort2 reversed50000 - 1,032s
+./sort2 random50000 - 1,040s
+
+sort3 uses: selection sort
+
+How do you know?: It performs worse than sort2 for diferents tests and maintain
+similar times regardless of the ordering of the numbers.
+
+./sort3 sorted50000 - 2,609s
+./sort3 reversed50000 - 2,995s
+./sort3 random50000 - 2,837s
