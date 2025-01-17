@@ -1,0 +1,8 @@
+Based on the top 100 songs from 2018, we can verify the average to danceability, energy and valency equal to
+0.72, 0.66 and 0.48 respectively. Which suggest an "Upbeat" and "Energetic" aura with a moderate level of positivity
+which aligns with the traits of Orange and Yellow auras.
+
+This method may not fully represent the listener, as it covers a short period of time, which is more susceptible to
+influences from temporary trends on the platform. To obtain a more accurate aura, an analysis of data from several years,
+with an analysis of a greater number of quantitative data with qualitative contributions from the listener.
+

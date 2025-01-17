@@ -1,0 +1,39 @@
+HTML Tags:
+<a>
+<body>
+<button>
+<div>
+<footer>
+<form>
+<head>
+<header>
+<h1>
+<h2>
+<html>
+<img>
+<input>
+<label>
+<li>
+<link>
+<main>
+<meta>
+<nav>
+<p>
+<textarea>
+<title>
+<ul>
+
+CSS Properties:
+background-color
+border-radius
+color
+display
+font-family
+font-size
+margin
+padding
+text-align
+
+JavaScript and Bootstrap:
+Included JavaScript to handle form submissions in the Contact page. library via CDN to provide enhanced interactive functionality and used Bootstrap for
+responsive design and to quickly style the navigation bar, headers, buttons, and form elements.
